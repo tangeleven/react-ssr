@@ -3,14 +3,13 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getIndexList } from '../store/index'
 import styles from './Index.css'
-const result = styles._getCss()
-console.log(1111,  styles, result.title)
+
+console.log(1111,  styles)
 
 function Index(props) {
-    console.log(11234, props)
-
     if (props.staticContext) {
-        props.staticContext.css.push(result)
+        console.log(2222, styles._getCss())
+        // props.staticContext.css.push(result)
     }
     useEffect(()=> {
         // props.dispatch(getIndexList())
