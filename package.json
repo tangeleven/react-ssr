@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run dev:client\" \"npm run dev:server\" \"npm run dev:start\" \"nodemon mock.js\"",
-    "dev:client": "webpack --config webpack.client.js --watch",
-    "dev:server": "webpack --config webpack.server.js --watch",
-    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\""
+    "dev:client": "webpack --config webpack.client.js",
+    "dev:server": "webpack --config webpack.server.js",
+    "dev:start": "node build --exec node \"./build/bundle.js\""
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "babel-plugin-react-html-attrs": "^3.0.5",
     "css-loader": "^4.2.1",
     "http-proxy-middleware": "^1.0.5",
     "isomorphic-style-loader": "^5.1.0",

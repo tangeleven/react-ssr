@@ -4,7 +4,6 @@ import Index from './container/Index'
 import About from './container/About'
 import Notfound from './container/Notfound'
 
-import './App.css'
 
 /* function App(props) {
     const [count, setCount] = useState(1)

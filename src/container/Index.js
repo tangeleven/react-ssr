@@ -2,17 +2,24 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getIndexList } from '../store/index'
-import styles from './Index.css'
+import styles from './Index.module.css'
 
 console.log(1111,  styles)
+const attr = {
+    title: 'abcde'
+}
+const abc = styles._getCss();
 
 function Index(props) {
+    console.log(2222, abc, typeof abc)
+    
     if (props.staticContext) {
-        console.log(2222, styles._getCss())
-        // props.staticContext.css.push(result)
+        
+        
+        
+        props.staticContext.css.push(abc)
     }
     useEffect(()=> {
-        // props.dispatch(getIndexList())
         if (!props.list.length) {
             props.getIndexList()
         }
@@ -20,7 +27,7 @@ function Index(props) {
     }, [])
     return (
         <div>
-            <h1 className={styles.title}>Index</h1>
+            <h1 className={styles.title}>Index  {styles.title}</h1>
             <ul>
                 {props.list.map((item, index) => {
                     return (

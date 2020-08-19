@@ -1,4 +1,5 @@
-
+import path from 'path'
+import fs from 'fs'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter, Route, Switch, matchPath } from 'react-router-dom'
@@ -20,7 +21,18 @@ app.use(
     createProxyMiddleware({target: 'http://localhost:9090', changeOrigin: true})
 )
 
+function csrRender(res) {
+    // 读取csr文件 返回
+    const filename = path.resolve(process.cwd(), 'public/index.csr.html')
+    const html = fs.readFileSync(filename, 'utf-8')
+    return res.send(html)
+}
+
 app.get("*", (req, res) => {
+
+    if(req.query._mode=='csr'){
+        return csrRender(res)
+    }
 
     const promises = [];
     routes.some(route => {
