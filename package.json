@@ -1,0 +1,39 @@
+{
+  "name": "react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run dev:client\" \"npm run dev:server\" \"npm run dev:start\" \"nodemon mock.js\"",
+    "dev:client": "webpack --config webpack.client.js --watch",
+    "dev:server": "webpack --config webpack.server.js --watch",
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "css-loader": "^4.2.1",
+    "http-proxy-middleware": "^1.0.5",
+    "isomorphic-style-loader": "^5.1.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  }
+}
